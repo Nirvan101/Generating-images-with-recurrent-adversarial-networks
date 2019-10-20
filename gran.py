@@ -29,11 +29,11 @@ def generator():
     ct = Conv2D(3, (2,2), padding='same', strides=1,activation='relu')(x)   #(64, 64, 3)
     
     
-    x = Conv2D(64, (4, 4), strides = 1, activation='relu', padding='same',activation='relu')(inp_ct)   #(64,64)
+    x = Conv2D(64, (4, 4), strides = 1, activation='relu', padding='same')(inp_ct)   #(64,64)
     x = MaxPooling2D((2, 2), padding='same')(x)     #(32,32)
-    x = Conv2D(64, (2, 2), strides = 1, activation='relu', padding='same',activation='relu')(x)   #(32,32)
+    x = Conv2D(64, (2, 2), strides = 1, activation='relu', padding='same')(x)   #(32,32)
     x = MaxPooling2D((2, 2), padding='same')(x)     #(16,16)
-    x = Conv2D(128, (2, 2), strides = 1, activation='relu', padding='same',activation='relu')(x)   #(16,16)
+    x = Conv2D(128, (2, 2), strides = 1, activation='relu', padding='same')(x)   #(16,16)
     x = MaxPooling2D((2, 2), padding='same')(x)     #(8,8,128)
     x = Flatten()(x)  
     x = Dense(128 * 8 * 8 ,activation='relu')(x)
